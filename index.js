@@ -203,14 +203,31 @@ const artists = [
 
 // 🖌🖼 M V P 🖼🖌 //
 
+// name of the array is artists
+
+
 /* Task 1: Practice accessing data above by console.log-ing following items:
 
 (1) Name of the first artist (0th index) in the array
 (2) Bio of the third artist (2nd index) in the array */
 
+ // (1)
+console.log(artists[0].name)
+
+
+
+// (2)
+
+console.log(artists[2].bio)
+
+
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
+
+
+
+
 
 
 
@@ -223,19 +240,49 @@ const artists = [
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
 function getArtistByIndex(array, index) {
-    /* code here */
-  }
   
-  /**
+  
+  for (let i = 0; i < array.length; i++)
 
 
-/* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
-
-function get20s(/* Code here */){
-
-  /* Code here */
+  `The artist at index 0 is ${}`
+  
 
 }
+  
+  getArtistByIndex(array, index)
+
+
+
+
+
+/* Task 4: Create a function called get20s() that takes data as an argument 
+
+and returns an array with 
+
+names of artists
+
+who were born in and died in 20th century (1900-2000)
+
+example born in 1901 and died in 1959 - included            / born in 1889 and died in 1925 not included - 
+
+should return ["Salvador Dali", "Frida Kahlo"]*/
+
+function get20s(array){
+
+  let century20died = []
+
+    let splits = artists[i].years
+
+    for (let i = 0; i < array.length; i++){
+      if (array[i].years >= 1901 && array[i].years < 2001){
+      century20died.split(array[i].name) 
+    }
+  }
+    return century20died;
+}
+console.log(get20s(artists));
+
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
