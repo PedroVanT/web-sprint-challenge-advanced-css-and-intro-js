@@ -230,7 +230,6 @@ console.log(artists[2].bio);
 
 function fixName(array, index, correction){
     array[index].name = correction;
-
 }
 console.log(fixName(artists, 8, "Vincent Van Gogh"));
 
@@ -246,7 +245,7 @@ console.log(fixName(artists, 8, "Vincent Van Gogh"));
 
 function getArtistByIndex(array, index) {
 
-  return `The artist at index ${array[index].id} is ${array[index].name}.`
+  return `The artist at index ${index} is ${array[index].name}.`
   
 }
 console.log(getArtistByIndex(artists, 0));
@@ -267,7 +266,6 @@ should return ["Salvador Dali", "Frida Kahlo"]*/
 function get20s(array){
   
   let newArray = []
-  
   for (let i = 0; i < array.length; i++){
     if(array[i].years.split('-') > "1900" && array[i].years.split('-')< "2001"){       
       newArray.push(array[i].name)
@@ -290,15 +288,13 @@ console.log(get20s(artists))
 */
 function removeArtist(array, index) {
     
-      let OneLessArtist = []
-      
-      if(array[index] === index){
-        OneLessArtist = array.splice(index);
-      }    
-      return OneLessArtist.splice(index);
+      array.splice(index, 1)
+      return array
+
   }
-console.log(removeArtist(artists,0));
- 
+console.log(removeArtist(artists,18));
+
+
 
 /**
 /* Task 6: Create a function called `addArtist` 
@@ -314,12 +310,22 @@ nationality: Your Nationality Here
 bio: Add 1-2 sentences (or use lorem ipsum) 
 
 At the end, this function should return the new array with information added"*/
+const newArtist = {
+  id: 20,
+  name: 'Pedro Van Thienen',
+  years: '1907 - 1954',
+  genre: 'Primitivism,Surrealism',
+  nationality: 'Mexican',
+  bio: "Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist.",
+  wikipedia: 'http://en.wikipedia.org/wiki/Frida_Kahlo',
+  paintings: 120
+}
+function addArtist(array, obj){
+  array.push(obj)
+  return array
+}
 
-function addArtist(array){
-
-    
-
-  }
+  console.log(addArtist(artists, newArtist))
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -335,12 +341,23 @@ function lotsOfArt(array){
 
   for (let i = 0; i < array.length; i++){
     if(array[i].paintings > 100){  
-      
+      hundredPaintings.push(array[i].name);
     }
-    return hundredPaintings.push(array[i].name);
+
   }
+  return hundredPaintings
 }
 console.log(lotsOfArt(artists));
+
+
+
+
+
+
+
+
+
+
 
 // 🎨🎨 STRETCH 🎨🎨//
 
